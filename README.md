@@ -20,10 +20,11 @@ From project root directory execute:
 java -jar target/calculator-jar-with-dependencies.jar
 ```
 
-
 ### Notes:
+Decimals and negative numbers are supported.
+
 Division by zero gives infinity.
 
 Unknown characters are ignored.
 
-Error handling is poor.
+Error handling requires improvement.
