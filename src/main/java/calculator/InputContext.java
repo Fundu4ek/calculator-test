@@ -18,6 +18,11 @@ public interface InputContext {
   Character getNextChar();
 
   /**
+   * Retrieves next character after next from line
+   */
+  Character getAfterNextChar();
+  
+  /**
    * Retrieves next character from line and moves internal pointer to next character of available.
    */
   Character fetchNextChar();

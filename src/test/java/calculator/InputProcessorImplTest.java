@@ -88,4 +88,53 @@ public class InputProcessorImplTest {
     processor.process();
     Assert.assertEquals(Float.POSITIVE_INFINITY, calcCtx.fetchLastItem().getValue(calcCtx), CommonConstants.DELTA);
   }
+  
+  @Test
+  public void testNegativeNumber() {
+    inputCtx.setLine("-10");
+    processor.process();
+    Assert.assertEquals(-10f, calcCtx.fetchLastItem().getValue(calcCtx), CommonConstants.DELTA);
+  }
+  
+  @Test
+  public void testNegativeNumbersMul() {
+    inputCtx.setLine("-2 -10 *");
+    processor.process();
+    Assert.assertEquals(20f, calcCtx.fetchLastItem().getValue(calcCtx), CommonConstants.DELTA);
+  }
+  
+  @Test
+  public void testNegativeNumbersSub() {
+    inputCtx.setLine("-2 -10 -");
+    processor.process();
+    Assert.assertEquals(8f, calcCtx.fetchLastItem().getValue(calcCtx), CommonConstants.DELTA);
+  }
+  
+  @Test
+  public void testDecimalNumber() {
+    inputCtx.setLine("2.5");
+    processor.process();
+    Assert.assertEquals(2.5f, calcCtx.fetchLastItem().getValue(calcCtx), CommonConstants.DELTA);
+  }
+  
+  @Test
+  public void testDecimalNumbersMul() {
+    inputCtx.setLine("2.5 2 *");
+    processor.process();
+    Assert.assertEquals(5f, calcCtx.fetchLastItem().getValue(calcCtx), CommonConstants.DELTA);
+  }
+  
+  @Test
+  public void testNegativeDecimalNumber() {
+    inputCtx.setLine("-12.55");
+    processor.process();
+    Assert.assertEquals(-12.55f, calcCtx.fetchLastItem().getValue(calcCtx), CommonConstants.DELTA);
+  }
+  
+  @Test
+  public void testNegativeDecimalNumbersSum() {
+    inputCtx.setLine("-12.55 4.55 +");
+    processor.process();
+    Assert.assertEquals(-8f, calcCtx.fetchLastItem().getValue(calcCtx), CommonConstants.DELTA);
+  }
 }

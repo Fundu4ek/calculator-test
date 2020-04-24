@@ -7,13 +7,40 @@ public class InputProcessorBuilder {
 
     // Handle integers
     processor.addHandler((InputContext ctx) -> {
-      return ctx.getNextChar() != null && Character.isDigit(ctx.getNextChar());
+      final Character ch = ctx.getNextChar();
+
+      if (ch == null) {
+        return false;
+      }
+
+      if (Character.isDigit(ch)) {
+        return true;
+      }
+
+      if (ch == '-') {
+        final Character afterNext = ctx.getAfterNextChar();
+        if (afterNext == null) {
+          return false;
+        }
+
+        if (Character.isDigit(afterNext)) {
+          return true;
+        }
+      }
+
+      return false;
     }, (InputContext ctx) -> {
       StringBuilder chars = new StringBuilder();
-      while (!ctx.isEmpty() && Character.isDigit(ctx.getNextChar())) {
+
+      // Handle negative values
+      if (ctx.getNextChar() == '-') {
         chars.append(ctx.fetchNextChar());
       }
-      
+
+      while (!ctx.isEmpty() && ('.' == ctx.getNextChar() || Character.isDigit(ctx.getNextChar()))) {
+        chars.append(ctx.fetchNextChar());
+      }
+
       calcCtx.add((CalculatorContext cctx) -> {
         return Float.parseFloat(chars.toString());
       });
@@ -41,7 +68,20 @@ public class InputProcessorBuilder {
 
     // Handle subtract operation
     processor.addHandler((InputContext ctx) -> {
-      return ctx.getNextChar() != null && ctx.getNextChar() == '-';
+      final Character ch = ctx.getNextChar();
+      
+      if (ch == null || ch != '-') {
+        return false;
+      }
+      
+      final Character afterNext = ctx.getAfterNextChar();
+      
+      if (afterNext != null && Character.isDigit(afterNext)) {
+        // Got negative number (not an operation)
+        return false;
+      }
+      
+      return true;
     }, (InputContext ctx) -> {
       ctx.fetchNextChar(); // Remove op sign from stack
       calcCtx.add((CalculatorContext cctx) -> {
@@ -50,7 +90,7 @@ public class InputProcessorBuilder {
         return first - second;
       });
     });
-    
+
     // Handle division operation
     processor.addHandler((InputContext ctx) -> {
       return ctx.getNextChar() != null && ctx.getNextChar() == '/';
@@ -59,11 +99,11 @@ public class InputProcessorBuilder {
       calcCtx.add((CalculatorContext cctx) -> {
         Float second = cctx.fetchLastItem().getValue(cctx);
         Float first = cctx.fetchLastItem().getValue(cctx);
-        
+
         return first / second;
       });
     });
-    
+
     return processor;
   }
 }
