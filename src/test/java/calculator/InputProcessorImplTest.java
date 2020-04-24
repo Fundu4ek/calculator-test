@@ -16,7 +16,7 @@ public class InputProcessorImplTest {
 
   @BeforeEach
   public void createInstance() {
-    inputCtx = new InputContext();
+    inputCtx = new InputContextImpl();
     calcCtx = new CalculatorContextImpl();
     this.processor = new InputProcessorBuilder().build(inputCtx, calcCtx);
   }

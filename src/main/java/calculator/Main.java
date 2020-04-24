@@ -9,7 +9,7 @@ public class Main {
   public static void main(String[] args) throws IOException {
 
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    InputContext inputCtx = new InputContext();
+    InputContext inputCtx = new InputContextImpl();
     CalculatorContext calcCtx = new CalculatorContextImpl();
     InputProcessor processor = new InputProcessorBuilder().build(inputCtx, calcCtx);
     
