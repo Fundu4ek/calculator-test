@@ -20,17 +20,10 @@ public class InputProcessor {
 
   public void process() {
     do {
-      boolean matched = false;
-
       for (InputHandler handler : handlers) {
         if (handler.match(inputCtx)) {
           handler.process(inputCtx, calcCtx);
-          matched = true;
         }
-      }
-
-      if (!matched) {
-        inputCtx.fetchNextChar(); // Skip unknown char
       }
     } while (!inputCtx.isEmpty());
   }
