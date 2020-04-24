@@ -4,7 +4,9 @@ Calculator Test Application
 Requires user manual input, uses polish notation
 
 ### Prerequisites
-In order to build and run application it is required to download and install two additional software pckages [Java JRE](https://www.java.com/download/) and [Apache Maven](https://maven.apache.org/download.cgi)
+In order to build and run application it is required to download and install two additional software packages:
+* [Java](https://www.java.com/download/) 
+* [Apache Maven](https://maven.apache.org/download.cgi)
 
 ### Build
 From project root directory run previously installed maven:
