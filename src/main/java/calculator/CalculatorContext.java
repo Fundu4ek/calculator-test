@@ -1,7 +1,7 @@
 package calculator;
 
 public interface CalculatorContext {
-  public void add(CalculatorItem number);
-  public CalculatorItem fetchLastItem();
-  public boolean isEmpty();
+  void add(CalculatorItem number);
+  CalculatorItem fetchLastItem();
+  boolean isEmpty();
 }

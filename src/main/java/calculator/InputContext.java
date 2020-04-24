@@ -1,11 +1,11 @@
 package calculator;
 
 public interface InputContext {
-  public boolean isEmpty();
-  public boolean isStopped();
+  boolean isEmpty();
+  boolean isStopped();
 
-  public void setLine(String line);
+  void setLine(String line);
   
-  public Character getNextChar();
-  public Character fetchNextChar();
+  Character getNextChar();
+  Character fetchNextChar();
 }
