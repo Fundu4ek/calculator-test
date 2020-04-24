@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import calculator.input.InputContext;
 import calculator.input.InputContextImpl;
 import calculator.input.InputProcessor;
-import calculator.input.InputProcessorBuilder;
 
 public class InputProcessorImplTest {
 
@@ -141,5 +140,16 @@ public class InputProcessorImplTest {
     inputCtx.setLine("-12.55 4.55 +");
     processor.process();
     Assert.assertEquals(-8f, calcCtx.fetchLastItem().getValue(calcCtx), CommonConstants.DELTA);
+  }
+  
+  @Test
+  public void testMultipleOperations() {
+    inputCtx.setLine("1 2 +");
+    processor.process();
+    inputCtx.setLine("3 *");
+    processor.process();
+    inputCtx.setLine("10 -");
+    processor.process();
+    Assert.assertEquals(-1f, calcCtx.fetchLastItem().getValue(calcCtx), CommonConstants.DELTA);
   }
 }

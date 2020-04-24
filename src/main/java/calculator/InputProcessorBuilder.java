@@ -1,6 +1,7 @@
-package calculator.input;
+package calculator;
 
-import calculator.CalculatorContext;
+import calculator.input.InputContext;
+import calculator.input.InputProcessor;
 import calculator.input.handler.MinusOperationHandler;
 import calculator.input.handler.NumbersHandler;
 import calculator.input.handler.SimpleOperationHandler;
