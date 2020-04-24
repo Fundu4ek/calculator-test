@@ -1,19 +1,12 @@
 package calculator;
 
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
-
 import lombok.Getter;
-import lombok.ToString;
-import lombok.extern.slf4j.Slf4j;
 
-@ToString
-@Slf4j
 public class InputContext {
   private final static String EMPTY = "";
   
   @Getter
-  boolean stopped = false;
+  private boolean stopped = false;
   private String data = EMPTY;
   private int currentPos = 0;
   

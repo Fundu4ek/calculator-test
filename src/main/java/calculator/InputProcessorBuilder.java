@@ -1,7 +1,7 @@
 package calculator;
 
-public class InputProcessorFactory {
-  public InputProcessor create(InputContext inputCtx, CalculatorContext calcCtx) {
+public class InputProcessorBuilder {
+  public InputProcessor build(InputContext inputCtx, CalculatorContext calcCtx) {
 
     InputProcessor processor = new InputProcessor(inputCtx);
 

@@ -11,9 +11,9 @@ public class Main {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     InputContext inputCtx = new InputContext();
     CalculatorContext calcCtx = new CalculatorContextImpl();
-    InputProcessor processor = new InputProcessorFactory().create(inputCtx, calcCtx);
+    InputProcessor processor = new InputProcessorBuilder().build(inputCtx, calcCtx);
     
-    DecimalFormat format = new DecimalFormat("#.###");
+    DecimalFormat format = new DecimalFormat("#.####");
     
     do {
       inputCtx.setLine(reader.readLine());
@@ -25,6 +25,7 @@ public class Main {
       processor.process();
       
       if (calcCtx.isEmpty()) {
+        // No numbers or operations were added
         continue;
       }
       
