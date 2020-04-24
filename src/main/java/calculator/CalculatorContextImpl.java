@@ -18,6 +18,11 @@ public class CalculatorContextImpl implements CalculatorContext {
   public CalculatorItem fetchLastItem() {
     return data.isEmpty() ? EMPTY_ITEM : data.pop();
   }
+  
+  @Override
+  public CalculatorItem getLastItem() {
+    return data.isEmpty() ? EMPTY_ITEM : data.peek();
+  }
 
   @Override
   public boolean isEmpty() {

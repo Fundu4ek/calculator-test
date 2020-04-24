@@ -4,6 +4,11 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import calculator.input.InputContext;
+import calculator.input.InputContextImpl;
+import calculator.input.InputProcessor;
+import calculator.input.InputProcessorBuilder;
+
 public class InputProcessorImplTest {
 
   private InputProcessor processor;
@@ -16,7 +21,7 @@ public class InputProcessorImplTest {
   public void createInstance() {
     inputCtx = new InputContextImpl();
     calcCtx = new CalculatorContextImpl();
-    this.processor = new InputProcessorBuilder().build(inputCtx, calcCtx);
+    processor = new InputProcessorBuilder().build(inputCtx, calcCtx);
   }
   
   

@@ -1,4 +1,4 @@
-package calculator;
+package calculator.input;
 
 public interface InputContext {
 

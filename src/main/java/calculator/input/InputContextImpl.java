@@ -1,4 +1,4 @@
-package calculator;
+package calculator.input;
 
 import lombok.Getter;
 
@@ -13,7 +13,7 @@ public class InputContextImpl implements InputContext {
   public void setLine(String line) {
     currentPos = 0;
 
-    if (line == null) {
+    if (line == null || "q".equalsIgnoreCase(line)) {
       data = EMPTY;
       stopped = true;
     } else {
