@@ -1,11 +1,13 @@
 # calculator-test
 Calculator Test Application
 
-Requires user manual input, uses polish notation
+Requires user manual input, uses polish notation.
+
+Supports decimals, negatives and real numbers.
 
 ### Prerequisites
 In order to build and run application it is required to download and install two additional software packages:
-* [Java](https://www.java.com/download/) 
+* [Java 8 or greater](https://www.java.com/download/) 
 * [Apache Maven](https://maven.apache.org/download.cgi)
 
 ### Build
