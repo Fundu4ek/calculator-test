@@ -24,7 +24,7 @@ public class MinusOperationHandler extends SimpleOperationHandler {
       return false;
     }
     
-    // Remove op sign from stack
+    // Remove operation sign from stack
     inputCtx.fetchNextChar(); 
     return true;
   }

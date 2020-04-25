@@ -22,18 +22,6 @@ public class InputContextImplTest {
   }
 
   @Test
-  public void testStopBehavior1() {
-    inputCtx.setLine(null);
-    Assert.assertEquals(true, inputCtx.isStopped());
-  }
-  
-  @Test
-  public void testStopBehavior2() {
-    inputCtx.setLine("q");
-    Assert.assertEquals(true, inputCtx.isStopped());
-  }
-  
-  @Test
   public void testFetching() {
     inputCtx.setLine("123");
     Assert.assertTrue('1' == inputCtx.fetchNextChar());

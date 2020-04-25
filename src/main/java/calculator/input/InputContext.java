@@ -2,9 +2,13 @@ package calculator.input;
 
 public interface InputContext {
 
+  public final static Character COMMAND_QUIT_CHAR = 'q';
+
   boolean isEmpty();
 
   boolean isStopped();
+  
+  void setStopped(boolean stopped);
 
   /**
    * Set current String line for input context.
